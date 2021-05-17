@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export const BandList = ({ data, votar }) => {
+export const BandList = ({ data, votar, borrar, cambiarNombre }) => {
 
     const [ bands, setBands ] = useState(data);
 
@@ -19,7 +19,7 @@ export const BandList = ({ data, votar }) => {
     };
 
     const onLostFocus = (id, nombre) => {
-
+        cambiarNombre(id, nombre)
     }
 
     const crearRows = () => {
@@ -45,7 +45,10 @@ export const BandList = ({ data, votar }) => {
                         <h3>{band.votes}</h3>
                     </td>
                     <td>
-                        <button className="btn btn-danger">Borrar</button>
+                        <button 
+                            className="btn btn-danger"
+                            onClick={ () => borrar(band.id) }
+                        >Borrar</button>
                     </td>
                 </tr>
             ))
