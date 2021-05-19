@@ -4,7 +4,7 @@ import { SocketContext } from '../context/socketContext';
 export const BandList = () => {
 
     const [ bands, setBands ] = useState([]);
-    const { socket } = useContext(SocketContext)
+    const { socket } = useContext(SocketContext);
 
     useEffect(() => {
         socket.on('current-bands', (bands) => {
